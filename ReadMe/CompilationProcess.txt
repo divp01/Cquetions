@@ -1,0 +1,37 @@
+For Linux :
+https://medium.com/@laura.derohan/compiling-c-files-with-gcc-step-by-step-8e78318052
+
+1. In order to stop the compilation right after Preprocessing (.i)
+    gcc -E filename.c
+2. The compiler (.s)
+    gcc -S filename.c
+3. The assembler (.o)
+    gcc -C filename.c
+4. The linker - Link all .O Executable files
+   direct by gcc filename.c -o executablefilename
+5. RUN executablefile
+    ./executablefilename
+6. Summary of Output File Names:
+    Preprocessing (-E): Without -o, output goes to the terminal. With -o, you specify the file, typically filename.i.
+    Compilation to Assembly (-S): Without -o, the output file will be filename.s.
+    Compilation to Object File (-c): Without -o, the output file will be filename.o.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+For Windows : Using MinGW
+1. for compiltion: gcc c -o filname.exe filename.C
+2. for Running: filname.exe
+3. To generate all files
+    gcc -E sourcefile.c -o sourcefile.i   # Generate preprocessed file
+    gcc -S sourcefile.c -o sourcefile.s   # Generate assembly file
+    gcc -c sourcefile.c -o sourcefile.o   # Generate object file
+    gcc sourcefile.o -o outputfile.exe    # Link object file to create executable
+
+5. -o: This option specifies the name of the output file. Without -o, 
+    gcc would send the output to the standard output (typically the terminal or console).
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In linux its .out and in windows its .exe ? - Yes but in linux doesn't need to specify
