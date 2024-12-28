@@ -3,5 +3,6 @@
         "origin",
         "upstream",
         "https://github.com/divp01/Embedded-World"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }
