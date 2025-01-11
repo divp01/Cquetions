@@ -4,7 +4,7 @@ void InsertionSort(int *arr,int size)
 {  int temp;
    
     for(int i=1;i<size;i++)
-    {  temp = *(arr+i); // or *(arr+i)
+    {  temp = *(arr+i);
        for(int j= i-1;j>=0;j--)
        {
         if(temp<*(arr+j))
