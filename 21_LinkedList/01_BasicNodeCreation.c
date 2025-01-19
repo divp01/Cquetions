@@ -48,6 +48,31 @@ void AddNode_AtEnd(struct node** Head)
     }
     
 }
+void AddNode_InBetween(struct node** Head,int afterNode)
+{   
+    struct node *temp = *Head;
+    
+    int NodeCount=1;
+
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    printf("For Creation of new Node, input data = ");
+    scanf("%d",&(ptr->data));
+    ptr->ptrToNext=NULL;
+
+
+
+    while((temp->ptrToNext != NULL) && NodeCount<afterNode)
+    {   
+        //initially temp point to 1st node as head is doing
+        temp = temp->ptrToNext; //now point to next node
+        NodeCount++;
+    }
+    ptr->ptrToNext = temp->ptrToNext;
+    temp->ptrToNext = ptr;
+
+    
+    
+}
 void AddNode_AtBeginning(struct node** Head)
 {   
 
@@ -78,6 +103,8 @@ int main(void)
     AddNode_AtEnd(&head);
     PrintLL(head);
     AddNode_AtBeginning(&head);
+    PrintLL(head);
+    AddNode_InBetween(&head,2);
     PrintLL(head);
     return 0;
 }
