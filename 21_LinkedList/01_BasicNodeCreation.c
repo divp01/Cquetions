@@ -91,7 +91,61 @@ void AddNode_AtBeginning(struct node** Head)
     }
     
 }
+void DeleteNode_AtBeginning(struct node** Head)
+{   
 
+    struct node *ptr = *Head;
+   
+
+    if(*Head == NULL)
+    {
+      printf("List is Empty");
+    }
+    else{
+        *Head = (*Head)->ptrToNext;//now head is pointing to next
+        free(ptr);
+    }
+    
+}
+void DeleteNode_AtEnd(struct node** Head)
+{   
+    struct node *temp = *Head; //address store in head pointer
+    struct node *Previous;
+
+    if(*Head == NULL)
+    {
+      printf("List is empty");
+    }
+    else{
+        while(temp->ptrToNext != NULL)
+        {   
+            Previous = temp;
+            temp = temp->ptrToNext;
+            
+        }
+        Previous->ptrToNext = NULL;
+        free(temp);
+    }
+    
+}
+void DeleteNode_InBetween(struct node** Head,int NodeNumber)
+{   
+    struct node *temp = *Head;
+     struct node *Previous;
+    Previous = temp;
+    int NodeCount=1;
+
+    
+    while (temp != NULL && NodeCount < NodeNumber) {
+    Previous = temp;
+    temp = temp->ptrToNext;
+    NodeCount++;
+   }
+
+     Previous->ptrToNext = temp->ptrToNext;
+   free(temp);
+
+}
 int main(void)
 {
     struct node *head = NULL, *temp;
@@ -104,7 +158,13 @@ int main(void)
     PrintLL(head);
     AddNode_AtBeginning(&head);
     PrintLL(head);
-    AddNode_InBetween(&head,2);
-    PrintLL(head);
+   //AddNode_InBetween(&head,2);
+   //PrintLL(head);
+   // DeleteNode_AtBeginning(&head);
+   // PrintLL(head);
+   //DeleteNode_AtEnd(&head);
+   //PrintLL(head);
+   DeleteNode_InBetween(&head,2);
+   PrintLL(head);
     return 0;
 }
