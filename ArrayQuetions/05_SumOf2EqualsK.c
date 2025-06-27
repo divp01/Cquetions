@@ -45,7 +45,7 @@ int* twoSum(int* numbers, int numbersSize, int target, int* returnSize) {
         sum=numbers[i]+numbers[j];
         if(sum==target)
         { ptr[0]=i;
-       ptr[1] =j;
+        ptr[1] =j;
         printf("%d , %d\n",i,j);
         return ptr;
         }
